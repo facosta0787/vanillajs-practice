@@ -17,6 +17,13 @@ const fetchData = (value) =>{
   })
 }
 
+const fetchDataById = (id) =>{
+  return fetch(`${URL}?apikey=${API_KEY}&i=${id.toLowerCase()}`)
+  .then((result)=>{
+    return result.json()
+  })
+}
+
 const setEventsListeners = () => {
   document.querySelector("#formulario")
   .addEventListener("submit",search,false)
@@ -42,7 +49,9 @@ const search = (event) => {
           data.Search.forEach(movie => content.appendChild(card(movie)))
           const cards = document.getElementsByClassName("card")
           Array.from(cards).forEach((card)=>{
-            card.onclick = event => { modal(card) }
+            card.onclick = event => {
+              fetchDataById(card.id).then(result => modal(result))
+            }
           })
         }
         loading.classList.remove("loading-show")
@@ -84,26 +93,33 @@ const card = (movie) => {
   return card
 }
 
-const modal = (card) => {
-
+const modal = (movie) => {
   const modal = document.getElementsByClassName("modal")[0]
   modal.innerHTML = ""
   modal.onclick = (event) => {
     modal.classList.remove("modal-show")
   }
+
   const modalFrame = document.createElement("div")
   modalFrame.classList.add("modal-frame")
   modal.appendChild(modalFrame)
 
   const image = document.createElement("img")
-  image.setAttribute("src",card.getElementsByTagName("img")[0].src)
+  image.setAttribute("src",movie.Poster)
   image.style.height = "200px"
   modalFrame.appendChild(image)
 
-  const title = document.createElement("h3")
-  title.innerHTML = "Spider Man"
-  modalFrame.appendChild(title)
+  const modalContent = document.createElement("div")
 
+  const title = document.createElement("h2")
+  title.innerHTML = movie.Title
+  modalContent.appendChild(title)
+
+  const plot = document.createElement("p")
+  plot.innerHTML = movie.Plot
+  modalContent.appendChild(plot)
+
+  modalFrame.appendChild(modalContent)
 
 
 
