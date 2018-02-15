@@ -32,18 +32,19 @@
   height: 100vh;
 }
 
+.body header{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
 h1{
   color: gray;
 }
 
 .radius{
   border-radius: 5px;
-}
-
-.body header{
-  display: flex;
-  justify-content: center;
-  width: 100%;
 }
 
 .searcher-container{
@@ -89,8 +90,13 @@ h1{
   display: flex;
   flex-direction: row;
   border: 1px solid #d4d4d5;
+  box-shadow: 1px 2px 8px 0px rgba(117,117,117,0.8);
   border-radius: 5px;
   margin-bottom: 10px
+}
+
+.card-content {
+  margin-top: 15px;
 }
 
 .card img{
@@ -103,6 +109,32 @@ h1{
 }
 
 @media (max-width: 490px){
+  .modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 101;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-show{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-frame{
+    width: 97%;
+    height: 200px;
+    background-color: white;
+    border-radius: 15px;
+    z-index: 102;
+  }
+
+
   .body{
     width: 95%;
   }
@@ -127,5 +159,10 @@ h1{
     width: 100.5%;
     margin-top: 5px;
     height: 2.8em;
+  }
+
+  .card img{
+    height: 200px;
+    margin-right: 5px;
   }
 }
