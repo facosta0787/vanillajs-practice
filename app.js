@@ -85,11 +85,27 @@ const card = (movie) => {
 }
 
 const modal = (card) => {
-  console.log("Card",card)
+
   const modal = document.getElementsByClassName("modal")[0]
+  modal.innerHTML = ""
+  modal.onclick = (event) => {
+    modal.classList.remove("modal-show")
+  }
   const modalFrame = document.createElement("div")
   modalFrame.classList.add("modal-frame")
   modal.appendChild(modalFrame)
+
+  const image = document.createElement("img")
+  image.setAttribute("src",card.getElementsByTagName("img")[0].src)
+  image.style.height = "200px"
+  modalFrame.appendChild(image)
+
+  const title = document.createElement("h3")
+  title.innerHTML = "Spider Man"
+  modalFrame.appendChild(title)
+
+
+
 
   modal.classList.add("modal-show")
 }
