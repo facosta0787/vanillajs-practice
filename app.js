@@ -7,7 +7,7 @@ const movies = [
   {id:6,Title:"Deadpool",Year:2016,Poster:"https://images-na.ssl-images-amazon.com/images/M/MV5BMjQyODg5Njc4N15BMl5BanBnXkFtZTgwMzExMjE3NzE@._V1_UY268_CR1,0,182,268_AL_.jpg"}
 ]
 
-const URL = "http://www.omdbapi.com/"
+const URL = "https://www.omdbapi.com/"
 const API_KEY = "2e2ca7ac"
 
 const fetchData = (value) =>{
