@@ -101,3 +101,31 @@ h1{
 .card .title-movie{
   color: gray;
 }
+
+@media (max-width: 490px){
+  .body{
+    width: 95%;
+  }
+
+  .searcher-container{
+    width: 100%;
+  }
+
+  .searcher{
+    width: 100%;
+  }
+
+  .searcher input{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    height: 1.8em;
+  }
+
+  .searcher button{
+    width: 100.5%;
+    margin-top: 5px;
+    height: 2.8em;
+  }
+}
